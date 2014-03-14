@@ -15,7 +15,15 @@ public class RegistrationForm implements Serializable {
 	private String password;
 	private String confirmPassword;
 	private String gender ;
+    private String dob ;
 	
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	public String getGender() {
 		return gender;
 	}
