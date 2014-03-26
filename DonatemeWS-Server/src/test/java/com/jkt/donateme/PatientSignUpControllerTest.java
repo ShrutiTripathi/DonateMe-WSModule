@@ -48,7 +48,8 @@ public class PatientSignUpControllerTest extends TestCase {
 		signUpFields.setLastName("Tripathi");
 		signUpFields.setEmail("shrutimailing1989@gmail.com");
 		signUpFields.setPassword("password");
-		signUpFields.setConfirmPassword("password");
+		signUpFields.setDob("12/10/1989");
+
 		return signUpFields;
 
 	}
