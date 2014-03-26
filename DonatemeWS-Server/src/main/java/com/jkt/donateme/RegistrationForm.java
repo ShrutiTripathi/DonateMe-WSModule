@@ -13,8 +13,8 @@ public class RegistrationForm implements Serializable {
 	private String lastName;
 	private String email;
 	private String password;
-	private String confirmPassword;
 	private String gender ;
+	private String dob ;
 	
 	public String getGender() {
 		return gender;
@@ -84,20 +84,17 @@ public class RegistrationForm implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	/**
-	 * @return the confirmPassword
+	 * @return dob
 	 */
-	public String getConfirmPassword() {
-		return confirmPassword;
+	public String getDob() {
+		return dob;
 	}
-
 	/**
-	 * @param confirmPassword
-	 *            the confirmPassword to set
+	 * @param dob
+	 * 
 	 */
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
-
 }
