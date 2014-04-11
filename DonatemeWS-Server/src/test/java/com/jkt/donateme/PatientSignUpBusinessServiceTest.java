@@ -1,4 +1,4 @@
-package com.jkt.donateme;
+/*package com.jkt.donateme;
 
 import junit.framework.TestCase;
 
@@ -48,3 +48,4 @@ public class PatientSignUpBusinessServiceTest extends TestCase {
 	}
 
 }
+*/

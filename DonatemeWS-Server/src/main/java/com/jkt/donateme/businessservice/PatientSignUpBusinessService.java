@@ -4,6 +4,6 @@ import com.jkt.donateme.RegistrationForm;
 
 public interface PatientSignUpBusinessService {
 	
-	RegistrationForm saveSignUpInfo(final RegistrationForm signUpFields);
+	Boolean saveSignUpInfo(final RegistrationForm signUpFields);
 
 }

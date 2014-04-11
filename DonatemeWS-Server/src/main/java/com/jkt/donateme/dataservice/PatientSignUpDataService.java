@@ -4,5 +4,9 @@ import com.jkt.donateme.RegistrationForm;
 
 public interface PatientSignUpDataService {
 
-	RegistrationForm saveSignUpInfo(final RegistrationForm signUpFields);
+	Boolean saveSignUpInfo(final RegistrationForm signUpFields);
+	
+	boolean findEmailID(String emailID);
 }
+
+
