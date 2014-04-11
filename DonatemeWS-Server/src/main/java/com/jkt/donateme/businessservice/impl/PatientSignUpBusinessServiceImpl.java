@@ -2,6 +2,7 @@ package com.jkt.donateme.businessservice.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.jkt.donateme.RegistrationForm;
 import com.jkt.donateme.businessservice.PatientSignUpBusinessService;
 import com.jkt.donateme.dataservice.PatientSignUpDataService;
@@ -35,7 +36,7 @@ public class PatientSignUpBusinessServiceImpl implements
 	/**
 	 * Saving Patient SignUp Fields through data service layer
 	 */
-	public RegistrationForm saveSignUpInfo(final RegistrationForm signUpFields) {
+	public Boolean saveSignUpInfo(final RegistrationForm signUpFields) {
 		return patientSignUpDataService.saveSignUpInfo(signUpFields);
 	}
 }

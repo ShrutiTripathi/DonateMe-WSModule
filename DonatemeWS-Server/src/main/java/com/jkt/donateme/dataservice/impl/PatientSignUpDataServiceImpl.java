@@ -2,7 +2,10 @@ package com.jkt.donateme.dataservice.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+
 import com.jkt.donateme.RegistrationForm;
 import com.jkt.donateme.dataservice.PatientSignUpDataService;
 
@@ -13,12 +16,23 @@ public class PatientSignUpDataServiceImpl implements PatientSignUpDataService {
 	private MongoTemplate mongoTemplate;
 
 	/**
-	 * Getting response in return from the webservice as Status Codes.
+	 * Getting response in return from the web service as Status Codes.
 	 */
 	@Override
-	public RegistrationForm saveSignUpInfo(final RegistrationForm signUpFields) {
-		mongoTemplate.save(signUpFields, "patient");
-		return signUpFields;
+	public Boolean saveSignUpInfo(final RegistrationForm signUpFields) {
+		Boolean isSave = false;
+		try {
+			if (!findEmailID(signUpFields.getEmail())) {
+
+				mongoTemplate.save(signUpFields, "patient");
+				isSave = true;
+
+			}
+
+		} catch (Exception e) {
+
+		}
+		return isSave;
 
 	}
 
@@ -38,5 +52,21 @@ public class PatientSignUpDataServiceImpl implements PatientSignUpDataService {
 	 */
 	public void setMongoTemplate(final MongoTemplate mongoTemplate) {
 		this.mongoTemplate = mongoTemplate;
+	}
+
+	@Override
+	public boolean findEmailID(String emailID) {
+		boolean isExist = false;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("email").is(emailID));
+
+		RegistrationForm form = mongoTemplate.findOne(query,
+				RegistrationForm.class, "patient");
+
+		if (form != null) {
+
+			isExist = true;
+		}
+		return isExist;
 	}
 }
